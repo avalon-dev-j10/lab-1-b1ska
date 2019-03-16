@@ -1,34 +1,41 @@
 package ru.avalon.java.dev.j10.labs.models;
+import ru.avalon.java.dev.j10.labs.commons.Address;
 
-/**
- * Представление о человеке.
- * <p>
- * С точки зрения задания человек представляется как сущность,
- * наделённая:
- * <ol>
- *     <li>именем;
- *     <li>паспортными данными;
- *     <li>пропиской по месту жительства.
- * </ol>
- */
 public class Person {
 
-    /*
-     * TODO(Студент): Создайте класс Address.
-     *
-     * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
-     *
-     * 2. Создайте класс, видимый из пакета. Подумайте о том
-     *    Какое имя должен иметь класс, если он объявленн в этом
-     *    файле.
-     *
-     * 3. Подумайте над тем, какие переменные должены быть
-     *    определены в классе.
-     *
-     * 4. Подумайте над тем, какие методы должны быть объявлены
-     *    в классе.
-     */
-
+//<editor-fold defaultstate="collapsed" desc="Конструкторы класса">
+    public Person(String surname, String name, String otchestvo) {
+        this.surname = surname;
+        this.name = name;
+        this.otchestvo = otchestvo;
+        
+        
+    }
+    
+    public Person(String surname, String name, String otchestvo,String secondname) {
+        this.surname = surname;
+        this.name = name;
+        this.otchestvo = otchestvo;
+        this.secondname = secondname;
+    }
+    
+    public Person(String surname, String name) {
+        this.surname = surname;
+        this.name = name;
+        
+    }
+//</editor-fold>
+          
+//<editor-fold defaultstate="collapsed" desc="Переменные класса">
+    private String name;
+    private String surname;
+    private String otchestvo;
+    private String secondname;
+    private Passport passport;
+    private Address address;
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Методы класса">
     /**
      * Возврвщает полное имя человека.
      * <p>
@@ -47,24 +54,33 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
-         */
-        return null;
+        
+        if (otchestvo == null){
+            return surname+" "+name;
+        }
+        else if(secondname == null) {
+            
+            return surname +" "+name+" "+otchestvo;
+        }
+        else {
+            return name +" "+ secondname.charAt(0)+"."+ " " + surname;
+        }
+        
     }
-
-    /**
-     * Возвращает адрес, по которому проживает человек.
-     * <p>
-     * Возвращаемый адрес соответствует месту постоянной
-     * регистрации человека, согласно паспортным данным.
-     *
-     * @return адрес регистрации в виде строки.
-     */
-    public String getAddress() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
-         */
-        return null;
+     
+    public Address getAddress(){
+        if (this.address == null) {
+            this.address = new Address(this);
+        }
+        return this.address;
     }
+    
+    public Passport getPassport(){
+        if (this.passport == null) {
+            this.passport = new Passport(this);
+        }
+        return this.passport;
+    }
+    
+//</editor-fold>
 }

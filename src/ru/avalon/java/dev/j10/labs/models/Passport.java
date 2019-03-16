@@ -1,40 +1,81 @@
 package ru.avalon.java.dev.j10.labs.models;
+import ru.avalon.java.dev.j10.labs.commons.Address;
 
-/**
- * Представление о паспортных данных человека.
- * <p>
- * Паспортные данные должны включать:
- * <ol>
- *  <li> серию и номер документа;
- *  <li> имя;
- *  <li> фамилию;
- *  <li> отчество;
- *  <li> второе имя;
- *  <li> день рождения;
- *  <li> дату выдачи;
- *  <li> орган, выдавший документ.
- * </ol>
- */
-class Passport {
+public class Passport {
+    
+//<editor-fold defaultstate="collapsed" desc="Конуструкторы класса">
+    public Passport(Person person) {
+        this.person = person;
+    }
+    
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Переменные класса">
+    private final Person person;
+    int number;
+    int seria;
+    int datewindraw;
+    String organ;
+    String propiska;
+    String fullName;
+//</editor-fold>    
+    
+//<editor-fold defaultstate="collapsed" desc="Методы класса">
+    public Person getPerson() {
+        return this.person;
+    }
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Геттеры и сеттеры">
+ 
+ public int getNumber() {
+     return number;
+ }
+ 
+ public void setNumber(int number) {
+     this.number = number;
+ }
+ 
+ public int getSeria() {
+     return seria;
+ }
+ 
+ public void setSeria(int seria) {
+     this.seria = seria;
+ }
+ 
+ public int getDatewindraw() {
+     return datewindraw;
+ }
+ 
+ public void setDatewindraw(int datewindraw) {
+     this.datewindraw = datewindraw;
+ }
+ 
+ public String getOrgan() {
+     return organ;
+ }
+ 
+ public void setOrgan(String organ) {
+     this.organ = organ;
+ }
+ 
+ public String getPropiska() {
+     return propiska;
+ }
+ 
+ public void setPropiska(String propiska) {
+     this.propiska = propiska;
+ }
+ 
+ public String getFullName() {
+     return fullName;
+ }
+ 
+ public void setFullName(String fullName) {
+     this.fullName = fullName;
+ }
+ 
+//</editor-fold>
 
-    /*
-     * TODO(Студент): Закончить определение класса.
-     *
-     * 1. Объявить атрибуты класса.
-     *
-     * 2. Определить необходимые методы класса. Подумайте о
-     *    том, какие методы должны существовать в классе,
-     *    чтобы обеспечивать получение всей необходимой
-     *    информации о состоянии объектов данного класса.
-     *    Все ли поля обязательно будут проинициализированы
-     *    при создании экземпляра?
-     *
-     * 3. Создайте все необходимые конструкторы класса.
-     *
-     * 4. Помните о возможности существования перегруженных
-     *    конструкторов.
-     *
-     * 5. Обеспечте возможность использования класса за
-     *    пределами пакета.
-     */
 }
